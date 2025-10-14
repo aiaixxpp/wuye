@@ -1,10 +1,14 @@
+
+
 <!DOCTYPE html>
+<html>
+
+	<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>午夜福利 - 神秘世界等你探索</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>午夜销魂</title>
     <style>
         * {
             margin: 0;
@@ -13,437 +17,2094 @@
         }
         
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0a0a16;
-            color: #fff;
-            overflow-x: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-        
-        .container {
-            width: 100%;
-            max-width: 1200px;
-            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
         }
         
         .banner {
-            position: relative;
             width: 100%;
-            height: 500px;
+            height: 80px;
+            background: linear-gradient(90deg, #ff6b6b, #ff8e8e, #ff6b6b);
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow: hidden;
-            background: linear-gradient(135deg, #0a0a16 0%, #1a1a2e 50%, #0a0a16 100%);
-            border-radius: 15px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
-        }
-        
-        #particles {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-        }
-        
-        .content {
             position: relative;
-            z-index: 2;
-            text-align: center;
-            padding: 0 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
         
-        .site-title {
-            font-size: 5rem;
-            font-weight: 900;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            color: #fff;
-            text-shadow: 
-                0 0 5px #8a2be2,
-                0 0 10px #8a2be2,
-                0 0 20px #8a2be2,
-                0 0 40px #8a2be2,
-                0 0 80px #8a2be2;
-            animation: neonPulse 2s infinite alternate;
-            transition: all 0.3s ease;
-        }
-        
-        .site-title:hover {
-            transform: scale(1.05);
-            text-shadow: 
-                0 0 10px #8a2be2,
-                0 0 20px #8a2be2,
-                0 0 30px #8a2be2,
-                0 0 50px #8a2be2,
-                0 0 100px #8a2be2;
-        }
-        
-        .site-subtitle {
-            font-size: 1.5rem;
-            margin-bottom: 30px;
-            opacity: 0.8;
-            font-weight: 300;
-            letter-spacing: 2px;
-            color: #c0c0ff;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 15px 40px;
-            background: rgba(138, 43, 226, 0.2);
+        .love-text {
+            font-size: 36px;
+            font-weight: bold;
             color: white;
-            text-decoration: none;
-            font-weight: 600;
-            letter-spacing: 1px;
-            border-radius: 50px;
-            border: 2px solid #8a2be2;
-            backdrop-filter: blur(10px);
-            transition: all 0.4s ease;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            animation: pulse 2s infinite, colorChange 5s infinite, float 3s ease-in-out infinite;
             position: relative;
-            overflow: hidden;
-            text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(138, 43, 226, 0.5);
         }
         
-        .cta-button:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: all 0.6s ease;
-        }
-        
-        .cta-button:hover {
-            background: rgba(138, 43, 226, 0.4);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(138, 43, 226, 0.7);
-        }
-        
-        .cta-button:hover:before {
-            left: 100%;
-        }
-        
-        .moon {
-            position: absolute;
-            top: 10%;
-            right: 10%;
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            background: radial-gradient(circle at 30px 30px, #f9f3d5, #e6d8a5);
-            box-shadow: 0 0 30px #f9f3d5;
-            z-index: 2;
-            animation: float 6s ease-in-out infinite;
-        }
-        
-        .stars {
+        .hearts {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: 1;
+            pointer-events: none;
         }
         
-        .star {
+        .heart {
             position: absolute;
-            background-color: white;
-            border-radius: 50%;
-            animation: twinkle 5s infinite;
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 20px;
+            animation: floatUp 5s linear infinite;
         }
         
-        .features {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-        
-        .feature {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(138, 43, 226, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .feature:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 20px rgba(138, 43, 226, 0.3);
-        }
-        
-        .feature i {
-            font-size: 2.5rem;
-            color: #8a2be2;
-            margin-bottom: 15px;
-        }
-        
-        .feature h3 {
-            margin-bottom: 10px;
-            color: #fff;
-        }
-        
-        .feature p {
-            color: #c0c0ff;
-            font-size: 0.9rem;
-        }
-        
-        @keyframes neonPulse {
-            from {
-                text-shadow: 
-                    0 0 5px #8a2be2,
-                    0 0 10px #8a2be2,
-                    0 0 20px #8a2be2,
-                    0 0 40px #8a2be2,
-                    0 0 80px #8a2be2;
-            }
-            to {
-                text-shadow: 
-                    0 0 10px #8a2be2,
-                    0 0 15px #8a2be2,
-                    0 0 25px #8a2be2,
-                    0 0 45px #8a2be2,
-                    0 0 85px #8a2be2;
-            }
-        }
-        
-        @keyframes twinkle {
-            0%, 100% {
-                opacity: 0.2;
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
             }
             50% {
-                opacity: 1;
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        
+        @keyframes colorChange {
+            0% {
+                color: white;
+            }
+            25% {
+                color: #ffecec;
+            }
+            50% {
+                color: #ffd6d6;
+            }
+            75% {
+                color: #ffc2c2;
+            }
+            100% {
+                color: white;
             }
         }
         
         @keyframes float {
-            0%, 100% {
+            0% {
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-20px);
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
             }
         }
         
-        @media (max-width: 768px) {
-            .site-title {
-                font-size: 3rem;
-                letter-spacing: 3px;
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100px) rotate(0deg);
+                opacity: 1;
             }
-            
-            .site-subtitle {
-                font-size: 1.2rem;
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
             }
-            
-            .moon {
-                width: 60px;
-                height: 60px;
-                top: 5%;
-                right: 5%;
+        }
+        
+        .content {
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        h1 {
+            margin: 20px 0;
+            color: #333;
+        }
+        
+        p {
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .controls {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        button:hover {
+            background-color: #ff5252;
+        }
+        
+        @media (max-width: 600px) {
+            .love-text {
+                font-size: 28px;
             }
             
             .banner {
-                height: 400px;
-            }
-            
-            .features {
-                gap: 15px;
-            }
-            
-            .feature {
-                width: 150px;
-                padding: 15px;
+                height: 70px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="banner">
-            <canvas id="particles"></canvas>
-            <div class="stars" id="stars"></div>
-            <div class="moon"></div>
-            <div class="content">
-                <h1 class="site-title">午夜福利</h1>
-                <p class="site-subtitle">神秘世界，等你探索</p >
-                <!-- 请将下面的链接替换为您网站的URL -->
-                <a href=" " class="cta-button">立即进入</a >
-            </div>
-        </div>
-        
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-gem"></i>
-                <h3>独家内容</h3>
-                <p>精心挑选的独家福利内容</p >
-            </div>
-            <div class="feature">
-                <i class="fas fa-lock"></i>
-                <h3>安全私密</h3>
-                <p>保护您的隐私安全</p >
-            </div>
-            <div class="feature">
-                <i class="fas fa-bolt"></i>
-                <h3>快速加载</h3>
-                <p>高速服务器，流畅体验</p >
-            </div>
-            <div class="feature">
-                <i class="fas fa-mobile-alt"></i>
-                <h3>移动适配</h3>
-                <p>完美适配各种设备</p >
-            </div>
+    <div class="banner">
+        <div class="love-text">午夜销魂</div>
+        <div class="hearts" id="hearts"></div>
+    </div>
         </div>
     </div>
+</nav>
 
-    <script>
-        // 粒子背景效果
-        const canvas = document.getElementById('particles');
-        const ctx = canvas.getContext('2d');
-        
-        // 设置canvas尺寸
-        function resizeCanvas() {
-            canvas.width = canvas.parentElement.clientWidth;
-            canvas.height = canvas.parentElement.clientHeight;
+
+
+
+<style>
+.app {
+	margin:10px 0;
+	border-radius:3px
+	background-color: #fff;
+}
+.app_title {
+	text-align:center;
+	line-height:35px;
+	font-size:15px;
+	border-bottom:1px solid#fff
+}
+.app ul li {
+	float:left;
+	width:8.33%;
+	text-align:center;
+	list-style-type:none
+}
+.app ul li img {
+	margin:0 auto;
+	width:56px;
+	height:56px;
+	display:block;
+	border-radius:12px
+}
+.app ul a {
+	font:12px/28px Tahoma,'Microsoft Yahei',Simsun;
+	color:#666;
+	overflow:hidden;
+	white-space:nowrap
+}
+
+@media screen and (max-width:640px) {
+	.app ul li {
+	width:20%
+}
+}
+
+.app li a:hover img{
+    transform:scale(1.5);
+    transition:transform .3s ease-in-out 0s
+}
+
+.app ul li a:hover  {
+	color:#FD4C5D;
+	font-weight: bold;
+}
+</style>
+
+
+<div class="app">
+  <ul>
+
+	  
+
+
+<li><a rel="external nofollow" href="https://zcp97jk.9909008.com/?&coverStatus=1&shareSource=0" target="_blank"><img src="https://collision3550.top/b7307118fb42b64017dea3e5f313a9c8.gif">
+<span style="color: #;">PG娱乐城</span></a></li>
+
+
+
+<li><a rel="external nofollow" href="https://51158.рф:3115/" target="_blank"><img src="https://seyoutupian.dqntwl.com/mg/mg150-1.gif">
+<span style="color: #;">免费看片</span></a></li>
+
+
+
+<li><a rel="external nofollow" href="https://museum-929-vnsr-0th5mwk.japaneast.cloudapp.azure.com:929/?cid=339454&type=4&currency=CNY&id=540133574" target="_blank"><img src="https://dd-static.jd.com/ddimg/jfs/t1/300908/31/1813/66520/004ef201F6362ce49/f346c2dc526b74cf.gif">
+<span style="color: #;">澳门威尼斯</span></a></li>
+
+<li><a rel="external nofollow" href="https://ok.5378773.cc:5377/88.html?shareName=5378704.cc"  target="_blank"><img src="https://img.xmshengchao.com:1688/images/716fbc19-d9df-4153-87e6-a9ce468c2ce8">
+<span style="color: #;">澳门赌城</span></a></li>
+
+<li><a rel="external nofollow" href="https://157.185.143.123:5029/?dl=$84hpox$CNY$2"  target="_blank"><img src="https://3rv4a884.cc/tp/vns150x150.gif">
+<span style="color: #;">PG赌城</span></a></li>
+
+
+
+
+<li><a rel="external nofollow" href="https://daryf.brhku.com/?a=880707t028" target="_blank"><img src="https://raw.githubusercontent.com/xingxing890/ai/refs/heads/main/ai/images/757.avif">
+<span style="color: #;">新普京</span></a></li> 
+
+
+<li><a rel="external nofollow" href="https://msdtmsdt.xiayao3.xyz/vodtype/25.html" target="_blank"><img src="https://teditvv.hxzdh50.top/%E7%99%BE%E5%BA%A6%E9%9F%B3%E4%B9%90/template/hxzdh/new/img/daxionjj.gif">
+<span style="color: #;">小学生爱爱</span></a></li> 
+
+
+
+
+<li><a rel="external nofollow" href="https://d280023xgtjla7.cloudfront.net/?dc=LFHL06" target="_blank"><img src="https://i.postimg.cc/CKYpC7Tz/v2-2d05af455766c4839c5b44fe1bf756a2.webp">
+<span style="color: #;">换妻交友</span></a></li>
+
+
+
+
+
+
+<li><a rel="external nofollow" href="https://安全-ai你我他.文明出行1s1s.com:27988/7qqz7" target="_blank"><img src="https://img.xmshengchao.com:1688/images/6e4cae25-3142-45c2-822e-039b488bb266">
+<span style="color: #;">凤凰国际</span></a></li>
+
+
+
+
+<li><a rel="external nofollow" href="/website/detail/id/338.html"  target="_blank"><img src="https://scrm-community.oss-cn-shenzhen.aliyuncs.com/miniso-vendor/20250605-455354-dbf0ea923a0c4a0ea49d11c1bfdcab3a.gif">
+<span style="color: #;">太阳城</span></a></li>
+
+
+
+
+<li><a rel="external nofollow" href="https://krzif5.dy4qt6g.live/shorteradmin/sys/jt/jump/100076"  target="_blank"><img src="https://thumbs4.imagebam.com/94/6d/b4/MEQ0PZ3_t.gif">
+<span style="color: #;">成人视频</span></a></li>
+
+
+<li><a rel="external nofollow" href="http://www.161sex.com/gb.php"  target="_blank"><img src="https://www.uxmum.top/images/688b541d24d532eab77cb6eb.gif">
+<span style="color: #;">同城约炮</span></a></li>
+
+
+<li><a rel="external nofollow" href=" https://www.hsi0kp.top"  target="_blank"><img src="http://xn--mp3aaa.xn--8mq3gz8ei6kh4ius9adkch1x.com/imgs/2025/09/0ef1f8ba6505fbb4.jpg">
+<span style="color: #;">附近密约</span></a></li>
+
+
+
+ </ul>
+</div>
+
+<!-- For APP -->
+<script>
+	$('.app a').on('click', function(){
+		link_url = $(this).attr('href');
+		link_name = $(this).find('span').text();
+		gtag('event', 'click_app', {'link_name': link_name,'link_url': link_url});
+	})
+</script><!--图标-->
+
+<div class="appel">
+<div id="youmu" class="youmu-app">
+
+
+	<div class="area">
+
+
+	
+
+
+</div>
+ <!--类别列表-->
+	
+	</div>
+</div>
+
+<br />
+			<div id="ddab">
+				<div class="seach">
+					<form action="/vodsearch/-------------/" method="get">
+						<input type="text" placeholder=&#35270;&#39057;&#20851;&#38190;&#35789;&#46;&#46;&#46; id="searchbutton" name="wd">
+						<button>&#35270;&#39057;&#25628;&#32034;</button>
+					</form>
+				</div>
+			</div>
+<br />
+
+
+
+<a rel="external nofollow" href="https://23.99.108.189/" target="_blank">
+<img src="https://imgoss820.top/2929-960x120.gif
+"   border='0' width='100%' height='80' style='border: 1px inset #00FF00'/></a>
+
+<a rel="external nofollow" href="https://999681jj.cc:61016" target="_blank">
+<img src="https://thae--Ho5w.s1ky7img7.sbs/banner/adb7y071501.gif"   border='0' width='100%' height='80' style='border: 1px inset #00FF00'/></a>
+
+
+<a rel="external nofollow" href="https://qm.qq.com/q/tqDe3TiFTc" target='_blank'>
+<img src="https://raw.githubusercontent.com/babacaoxiaoh/JBBJ.cn/refs/heads/main/images/IMG_20251011_152915_795.png" border='0' width='100%' height='80' /></a>
+
+
+
+ <!--横幅-->
+<br />
+
+ 
+
+<script>
+    var WN={
+        'Cookie': {
+            'Set': function(name,value,days){
+                var exp = new Date();
+                exp.setTime(exp.getTime() + days*24*60*60*1000);
+                var arr=document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+                document.cookie=name+"="+encodeURIComponent(value)+";path=/;expires="+exp.toUTCString();
+            },
+            'Get': function(name){
+                var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+                if(arr != null){ return decodeURIComponent(arr[2]); return null; }
+            },
+            'Del': function(name){
+                var exp = new Date();
+                exp.setTime(exp.getTime()-1);
+                var cval = this.Get(name);
+                if(cval != null){ document.cookie = name+"="+encodeURIComponent(cval)+";path=/;expires="+exp.toUTCString(); }
+            }
         }
+    
+    }
+
+    
+    $('.wn_keyword_wrapper .wn_keyword').off().on('click', function(e){
+        e.preventDefault();
         
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
+        var current_jump_times = WN.Cookie.Get('jump_times') == null ? 0 : WN.Cookie.Get('jump_times');
+        var hidden_jump_limit = parseInt("30");
+        var hidden_jump_reset = parseInt("360");
         
-        // 粒子类
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = Math.random() * 3 - 1.5;
-                this.speedY = Math.random() * 3 - 1.5;
-                this.color = `rgba(${Math.floor(Math.random() * 100 + 100)}, 
-                                  ${Math.floor(Math.random() * 50 + 50)}, 
-                                  ${Math.floor(Math.random() * 155 + 100)}, 
-                                  ${Math.random() * 0.5 + 0.1})`;
+        if(!current_jump_times || current_jump_times < hidden_jump_limit || (WN.Cookie.Get('jump_expiry') && new Date().getTime() > WN.Cookie.Get('jump_expiry'))){
+            
+            var skip = false;
+            var must_jump_url = "";
+            if(must_jump_url != ""){
+                record_jump(current_jump_times, hidden_jump_reset, must_jump_url)
+                window.open(must_jump_url, '_blank');
+                skip = true;
+                return;
             }
             
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
+            var hidden_jump_rate = parseInt("100");
+            var p = Math.random() * 100;
+            if(hidden_jump_rate >= p){
                 
-                if (this.x > canvas.width || this.x < 0) this.speedX = -this.speedX;
-                if (this.y > canvas.height || this.y < 0) this.speedY = -this.speedY;
-            }
-            
-            draw() {
-                ctx.fillStyle = this.color;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        
-        // 创建粒子
-        const particles = [];
-        const particleCount = 80;
-        
-        for (let i = 0; i < particleCount; i++) {
-            particles.push(new Particle());
-        }
-        
-        // 连接粒子
-        function connectParticles() {
-            const maxDistance = 150;
-            for (let a = 0; a < particles.length; a++) {
-                for (let b = a; b < particles.length; b++) {
-                    const dx = particles[a].x - particles[b].x;
-                    const dy = particles[a].y - particles[b].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < maxDistance) {
-                        const opacity = 1 - distance / maxDistance;
-                        ctx.strokeStyle = `rgba(138, 43, 226, ${opacity * 0.2})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particles[a].x, particles[a].y);
-                        ctx.lineTo(particles[b].x, particles[b].y);
-                        ctx.stroke();
+                var jump_url_data = 'https://diyyyy25.top/zz/?form=XS5MU|3,https://hsj.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html|3,https://hsj.c7ykf7m3.sbs/放松身心/jlw8--oo.html|1,https://www.yanjiu2025.in/学习资料/|1,https://hsj.blmm8.cc/热爱生活/|2,https://玭玭aa20.diwqqsdd23.cc/富强/|1,https://粃粃ab4.fangenpp31.cc/好学/|3,https://轩轩fc5.jiayywpp59.cc/富强/|1,https://钰轩aa10.flwqqcbg78.cc/富强/|1,https://好郝aa8.haoyyasd15.cc/好学/|1,https://hsj.df66r.cc/阳光/|1,https://szbkdhpc28.com/快乐猫/|1,https://hs360.39heise360dh.cc/heise/|1,https://5b960c.csmendh22.com|2,https://xswow.ipvv2025.buzz/p7ra91y/|2';
+                var jump_url_arr = jump_url_data.split(",");
+                var max = 0;
+                var sum = 0;
+                jump_url_arr.forEach(function(e, i, a){
+                    a[i] = e.split('|');
+                    if (a[i][1] !== undefined){
+                        max += parseInt(a[i][1]); 
+                    }else{
+                        a[i] = null;
                     }
-                }
+                });
+                
+                var rand = Math.random() * max;
+                jump_url_arr.forEach(function(e, i, a){
+                    if(skip) return;
+                    sum += parseInt(e[1]);
+                    if (sum >= rand){
+                        console.log(e[0])
+                        record_jump(current_jump_times, hidden_jump_reset, e[0])
+                        window.open(e[0], '_blank');
+                        skip = true;
+                        return;
+                    }
+                });
+                if(skip) return;
             }
         }
-        
-        // 动画循环
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            for (let i = 0; i < particles.length; i++) {
-                particles[i].update();
-                particles[i].draw();
-            }
-            
-            connectParticles();
-            requestAnimationFrame(animate);
+		
+		
+        window.open("/vodsearch/-------------/?wd=" + $(this).data('keyword'), '_blank');
+    })
+    
+    function record_jump(current_jump_times, hidden_jump_reset, link_url){
+        console.log(link_url)
+        if( !current_jump_times || (WN.Cookie.Get('jump_expiry') && new Date().getTime() > WN.Cookie.Get('jump_expiry')) ){
+            current_jump_times = 0;
+            expiry = new Date().getTime() + (hidden_jump_reset * 1000);
+            WN.Cookie.Set('jump_expiry', expiry);
         }
         
-        animate();
+        gtag('event', 'click_keyword_jump', {'link_url': link_url});
+		_paq.push(['trackLink', link_url, 'link']);
+        current_jump_times++;
+        WN.Cookie.Set('jump_times', current_jump_times);
+    }
+	
+
+</script> <!--jlink-->
+
+
+<style>
+.txtguanggao{width: 100%;overflow: hidden;display: block;box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);}
+.txtguanggao a{width: 16.4%;float: left;border-radius: 3px;line-height: 30px;height: 30px;text-align: center;font-size: 16px;color: #fff;display: inline-block;background-color: rgb(255, 153, 159);margin: 1px;transition-duration: .3s;}
+.txtguanggao a:nth-child(1) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(2) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(3) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(4) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(5) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(6) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(7) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(8) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(9) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(10) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(11) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(12) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(13) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(14) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(15) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(16) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(17) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(18) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(19) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(20) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(21) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(22) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(23) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(24) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(25) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(26) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(27) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(28) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(29) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(30) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(31) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(32) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(33) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(34) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(35) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(36) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(37) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(38) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(39) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(40) {background-color: #2e2e2e;}
+.txtguanggao a:hover{background:#DC3545;color:#FFF}
+@media screen and (max-width: 1000px) {.txtguanggao a{width: 20%;float: left;border-radius: 3px;line-height: 30px;height: 30px;text-align: center;font-size: 14px;color: #fff;display: inline-block;background-color: rgb(255, 153, 159);margin: 1px;transition-duration: .3s;}}
+</style>
+
+
+<div class='txtguanggao'>
+<div id="partnertitle"><h2 style="display: inline-block;font-size: 20px;    margin-bottom: 10px;color:#FF0000;margin: 5px auto 5px;">&#31449;&#38271;&#25512;&#33616;<h2></div></div>
+<div class='txtguanggao'>
+    
+ 			 	                                              
+ <a href="https://蔑义昷读.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#26143;&#31354;&#20837;&#21475;','link_url': 'https://蔑义昷读.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html','link_id': '14215'});">&#26143;&#31354;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://bwx.wxbao7y5mh.com/大小双儿/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#21507;&#29916;&#40657;&#26009;&#32593;','link_url': 'https://bwx.wxbao7y5mh.com/大小双儿/','link_id': '14216'});">&#21507;&#29916;&#40657;&#26009;&#32593;</a>
+				</a>	                                              
+ <a href="https://diyyyy25.top/zz/?form=XS5MU" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#31532;&#19968;&#23548;&#33322;','link_url': 'https://diyyyy25.top/zz/?form=XS5MU','link_id': '14217'});">&#31532;&#19968;&#23548;&#33322;</a>
+				</a>	                                              
+ <a href="https://flk.blmm8.cc/热爱生活/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#19981;&#33391;&#30740;&#31350;&#25152;','link_url': 'https://flk.blmm8.cc/热爱生活/','link_id': '14218'});">&#19981;&#33391;&#30740;&#31350;&#25152;</a>
+				</a>	                                              
+ <a href="https://粃粃ab4.fangenpp31.cc/好学/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#84;&#105;&#107;&#84;&#111;&#107;&#20837;&#21475;','link_url': 'https://粃粃ab4.fangenpp31.cc/好学/','link_id': '14219'});">&#84;&#105;&#107;&#84;&#111;&#107;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://omss.wolfwebsi.buzz/ooo/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#29436;&#21451;&#31119;&#21033;&#32593;','link_url': 'https://omss.wolfwebsi.buzz/ooo/','link_id': '14220'});">&#29436;&#21451;&#31119;&#21033;&#32593;</a>
+				</a>	                                              
+ <a href="https://hyeleo.xyz/go/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#40657;&#26009;&#31119;&#21033;&#32593;','link_url': 'https://hyeleo.xyz/go/','link_id': '14221'});">&#40657;&#26009;&#31119;&#21033;&#32593;</a>
+				</a>	                                              
+ <a href="https://xswow.ipvv2025.buzz/p7ra91y/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#33821;&#33673;&#23707;&#86;&#73;&#80;','link_url': 'https://xswow.ipvv2025.buzz/p7ra91y/','link_id': '14222'});">&#33821;&#33673;&#23707;&#86;&#73;&#80;</a>
+				</a>	                                              
+ <a href="https://玭玭aa20.diwqqsdd23.cc/富强/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#24093;&#29579;&#20250;&#25152;','link_url': 'https://玭玭aa20.diwqqsdd23.cc/富强/','link_id': '14223'});">&#24093;&#29579;&#20250;&#25152;</a>
+				</a>	                                              
+ <a href="https://fl.13anyeav.com/淀隶稽读/akeo-dd-da.html" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#26263;&#22812;&#20837;&#21475;','link_url': 'https://fl.13anyeav.com/淀隶稽读/akeo-dd-da.html','link_id': '14224'});">&#26263;&#22812;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://hsldhbigg5.com/快乐猫/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#22909;&#33394;&#26519;','link_url': 'https://hsldhbigg5.com/快乐猫/','link_id': '14225'});">&#22909;&#33394;&#26519;</a>
+				</a>	                                              
+ <a href="https://5b960c.csmendh22.com" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#20256;&#36865;&#38376;','link_url': 'https://5b960c.csmendh22.com','link_id': '14226'});">&#20256;&#36865;&#38376;</a>
+				</a>	                                              
+ <a href="https://stdtri0001.xyz/ts/info.html?for=wlbcnn" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#83;&#32423;&#36890;&#36947;','link_url': 'https://stdtri0001.xyz/ts/info.html?for=wlbcnn','link_id': '14227'});">&#83;&#32423;&#36890;&#36947;</a>
+				</a>	                                              
+ <a href="https://lltpp-dd.buzz/光曖曖/哈呲.html" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#20081;&#20262;&#20599;&#25293;&#32593;','link_url': 'https://lltpp-dd.buzz/光曖曖/哈呲.html','link_id': '14228'});">&#20081;&#20262;&#20599;&#25293;&#32593;</a>
+				</a>	                                              
+ <a href="https://ylf.hdlclub7y5mh.com/节节高升/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#32418;&#28783;&#31548;&#20250;&#25152;','link_url': 'https://ylf.hdlclub7y5mh.com/节节高升/','link_id': '14229'});">&#32418;&#28783;&#31548;&#20250;&#25152;</a>
+				</a>	                                              
+ <a href="https://hs.flh03.com/天天开心/?from=jilewow" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#20840;&#29699;&#31119;&#21033;&#27719;','link_url': 'https://hs.flh03.com/天天开心/?from=jilewow','link_id': '14230'});">&#20840;&#29699;&#31119;&#21033;&#27719;</a>
+				</a>	                                              
+ <a href="https://kss.hlxxx.com/喜上加囍/?from=jilewow" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#40657;&#26009;&#27010;&#24565;&#31449;','link_url': 'https://kss.hlxxx.com/喜上加囍/?from=jilewow','link_id': '14231'});">&#40657;&#26009;&#27010;&#24565;&#31449;</a>
+				</a>	                                              
+ <a href="https://hs360.39heise360dh.cc/heise/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#40657;&#33394;&#51;&#54;&#48;','link_url': 'https://hs360.39heise360dh.cc/heise/','link_id': '14232'});">&#40657;&#33394;&#51;&#54;&#48;</a>
+				</a>	                                              
+ <a href="https://hsf.df66r.cc/阳光/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#36887;&#22919;&#20083;','link_url': 'https://hsf.df66r.cc/阳光/','link_id': '14233'});">&#36887;&#22919;&#20083;</a>
+				</a>	                                              
+ <a href="https://钰轩aa10.flwqqcbg78.cc/富强/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#53;&#49;&#30475;&#29255;&#32593;','link_url': 'https://钰轩aa10.flwqqcbg78.cc/富强/','link_id': '14234'});">&#53;&#49;&#30475;&#29255;&#32593;</a>
+				</a>	                                              
+ <a href="https://好郝aa8.haoyyasd15.cc/好学/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#65;&#31449;&#20837;&#21475;','link_url': 'https://好郝aa8.haoyyasd15.cc/好学/','link_id': '14235'});">&#65;&#31449;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://轩轩fc5.jiayywpp59.cc/富强/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#19977;&#21315;&#20339;&#20029;','link_url': 'https://轩轩fc5.jiayywpp59.cc/富强/','link_id': '14236'});">&#19977;&#21315;&#20339;&#20029;</a>
+				</a>	                                              
+ <a href="https://白痒座.mengnanxiu.buzz/天天向上.html?from=jile" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#29467;&#30007;&#24773;&#22577;&#23616;','link_url': 'https://白痒座.mengnanxiu.buzz/天天向上.html?from=jile','link_id': '14237'});">&#29467;&#30007;&#24773;&#22577;&#23616;</a>
+				</a>	                                              
+ <a href="https://szbkdhpc28.com/快乐猫/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#33394;&#32508;&#30334;&#31185;','link_url': 'https://szbkdhpc28.com/快乐猫/','link_id': '14238'});">&#33394;&#32508;&#30334;&#31185;</a>
+				</a>	                                              
+ <a href="https://sh42im.soinly.buzz/go/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#25163;&#28139;&#20048;&#22253;','link_url': 'https://sh42im.soinly.buzz/go/','link_id': '14239'});">&#25163;&#28139;&#20048;&#22253;</a>
+				</a>	                                              
+ <a href="https://q24t.qswt2t.buzz/kcqsw/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#22269;&#20135;&#24773;&#33394;&#32593;','link_url': 'https://q24t.qswt2t.buzz/kcqsw/','link_id': '14240'});">&#22269;&#20135;&#24773;&#33394;&#32593;</a>
+				</a>	                                              
+ <a href="https://www.yanjiu2025.in/学习资料/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#31192;&#23494;&#30740;&#31350;&#25152;','link_url': 'https://www.yanjiu2025.in/学习资料/','link_id': '14241'});">&#31192;&#23494;&#30740;&#31350;&#25152;</a>
+				</a>	                                              
+ <a href="https://禾俵3.y12m34.top/岎禾丹/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#38544;&#31192;&#37096;&#33853;','link_url': 'https://禾俵3.y12m34.top/岎禾丹/','link_id': '14242'});">&#38544;&#31192;&#37096;&#33853;</a>
+				</a>	                                              
+ <a href="https://eq.sybbdh7.cc/高山流水/?from=jilewow24y9k.cc" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#28145;&#22812;&#24517;&#22791;','link_url': 'https://eq.sybbdh7.cc/高山流水/?from=jilewow24y9k.cc','link_id': '14243'});">&#28145;&#22812;&#24517;&#22791;</a>
+				</a>	                                              
+ <a href="https://ecioka-zahge.jilewow3v.com/hwyayl/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#57;&#49;&#30701;&#35222;&#38971;','link_url': 'https://ecioka-zahge.jilewow3v.com/hwyayl/','link_id': '14244'});">&#57;&#49;&#30701;&#35222;&#38971;</a>
+				</a></div> <!--站長推薦-->
+
+
+</div>
+
+<head>
+<meta charset="UTF-8" />
+<title>图片布局测试</title>
+<style>
+/* 主容器，确保每个li中的内容横排 */
+.thumbnail-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px; /* 控制间距 */
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.thumbnail-group > li {
+  display: flex;
+  flex-direction: column; /* 初始化为列排（图片上文字下） */
+  width: 23%; /* 四列布局 */
+  box-sizing: border-box;
+}
+
+/* 小屏幕改为两列 */
+@media(max-width: 768px) {
+  .thumbnail-group > li {
+    width: 48%;
+  }
+}
+/* 让图片宽度自适应，保持比例 */
+.thumbnail-group > li a img {
+  width: 100%; /* 占满容器宽度 */
+  height: auto; /* 保持比例 */
+  display: block; /* 去除底部空隙 */
+  object-fit: cover; /* 裁剪图片，避免拉伸 */
+  max-height: 150px; /* 可选，限制图片高度 */
+}
+.video-info {
+  margin-top: 8px;
+  width: 100%;
+}
+
+/* 标题只占一行，超出隐藏显示省略 */
+.video-info h5 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  font-size: 14px;
+}
+</style>
+</head>
+<body>
+
+
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/20/36031d71/index.m3u8" class="thumbnail">
+      <img src="https://ei.phncdn.com/videos/202005/06/310991861/original/(m=eafTGgaaaa)(mh=4xkejsn8Q2-Rg4wd)3.jpg" alt="宾馆真实偷拍开房偸情，骚女主动吸肉棒舔全身给毒龙" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/20/36031d71/index.m3u8">宾馆真实偷拍开房偸情，骚女主动吸肉棒舔全身给毒龙</a></h5>
+      <p>
+        <span>热度: 985K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：45分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/21/a5815a28/index.m3u8" class="thumbnail">
+      <img src="https://ei.phncdn.com/videos/202208/01/412847681/original/(m=eafTGgaaaa)(mh=vWcPbvNjzpQSat_L)13.jpg" alt="美容店偷拍 绝美老板娘下班后和相好的偷情，直接在按摩床上开炮" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/21/a5815a28/index.m3u8">美容店偷拍 绝美老板娘下班后和相好的偷情，直接在按摩床上开炮</a></h5>
+      <p>
+        <span>热度: 850K</span>
+        <br>
+        <span class="movie-duration">片长：50分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://ei.phncdn.com/videos/202505/11/468482935/thumbs_125/(m=eafTGgaaaa)(mh=2wJI6cyH62SIlc06)16.jpg" alt="与无尽的日本女孩💗的体内射精性爱 无码🫠" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">与无尽的日本女孩💗的体内射精性爱 无码🫠</a></h5>
+      <p>
+        <span>热度: 900K</span>
+        <br>
+        <span class="movie-duration">片长：40分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://ei.phncdn.com/videos/202506/16/470403315/original/(m=eafTGgaaaa)(mh=OA1ZnlGcabS2-n8I)16.jpg" alt="偷拍女子SPA，私密保养人妻偷偷出来，想被陌生男人好好操爽" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">偷拍女子SPA，私密保养人妻偷偷出来，想被陌生男人好好操爽</a></h5>
+      <p>
+        <span>热度: 720K</span>
+        <br>
+        <span class="movie-duration">片长：57分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+                                                         
+
+<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250714/YP2SjaBl/1.jpg?t=1752557694" alt="偷拍清纯少女们性感的裙底" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">偷拍清纯少女们性感的裙底</a></h5>
+      <p>
+        <span>热度: 935K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：46分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://guzwiayz.com/20250714/AD6ll53y/1.jpg?t=1752557695" alt="【宾馆盗摄】校花约会男友在宾馆被偷拍泄露" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">【宾馆盗摄】校花约会男友在宾馆被偷拍泄露</a></h5>
+      <p>
+        <span>热度: 810K</span>
+        <br>
+        <span class="movie-duration">片长：52分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250714/ASPuNPxQ/1.jpg?t=1752557738" alt="春光乍泄，户外偷拍漏点大合集，拍婚纱漏出小豆豆" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">春光乍泄，户外偷拍漏点大合集，拍婚纱漏出小豆豆</a></h5>
+      <p>
+        <span>热度: 940K</span>
+        <br>
+        <span class="movie-duration">片长：44分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250714/5lkHXJ5A/1.jpg?t=1752557748" alt="【厕所偷拍】近距离拍少女嫩逼尿尿大黑逼白屁屁" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">【厕所偷拍】近距离拍少女嫩逼尿尿大黑逼白屁屁</a></h5>
+      <p>
+        <span>热度: 790K</span>
+        <br>
+        <span class="movie-duration">片长：35分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+											<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250714/mH7JcPya/1.jpg?t=1752557813" alt="酒店针孔摄像头偷拍情侣激情啪啪" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">酒店针孔摄像头偷拍情侣激情啪啪</a></h5>
+      <p>
+        <span>热度: 485K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：25分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://guzwiayz.com/20250711/wEexGC4y/1.jpg?t=1752296491" alt="家庭网络摄像头偷拍最美警花 在自家豪宅内生活展示和官二代老公激情性生活" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">家庭网络摄像头偷拍最美警花 在自家豪宅内生活展示和官二代老公激情性生活</a></h5>
+      <p>
+        <span>热度: 950K</span>
+        <br>
+        <span class="movie-duration">片长：38分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250713/zg7JW7wf/1.jpg?t=1752497147" alt="监控偷拍情侣做爱一直一个姿势浪费一对大奶 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">监控偷拍情侣做爱一直一个姿势浪费一对大奶 </a></h5>
+      <p>
+        <span>热度: 900K</span>
+        <br>
+        <span class="movie-duration">片长：43分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250713/YxE3FN1m/1.jpg?t=1752497150" alt="酒店绿叶房高清偷拍 东北口音骚货美女cosplay黑丝猫女取悦男友吃屌被草的样子非常淫骚" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">酒店绿叶房高清偷拍 东北口音骚货美女cosplay黑丝猫女取悦男友吃屌被草的样子非常淫骚</a></h5>
+      <p>
+        <span>热度: 730K</span>
+        <br>
+        <span class="movie-duration">片长：52分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+		
+
+		
+			
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250713/KH9niMm5/1.jpg?t=1752497151" alt="高校附近酒店偷拍 极品青涩大学生情侣激情大战小哥疯狂舔逼" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">高校附近酒店偷拍 极品青涩大学生情侣激情大战小哥疯狂舔逼</a></h5>
+      <p>
+        <span>热度: 995K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：15分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://guzwiayz.com/20250713/6OTdpQ3y/1.jpg?t=1752497165" alt="【酒店偷拍】乖乖女学生妹被无情打桩输出" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">【酒店偷拍】乖乖女学生妹被无情打桩输出</a></h5>
+      <p>
+        <span>热度: 820K</span>
+        <br>
+        <span class="movie-duration">片长：51分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250714/OxDkhawb/1.jpg?t=1752557693" alt="破解摄像头偷拍 杂货店俩口大白天在转椅上插逼 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">破解摄像头偷拍 杂货店俩口大白天在转椅上插逼</a></h5>
+      <p>
+        <span>热度: 906K</span>
+        <br>
+        <span class="movie-duration">片长：44分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250715/kvo0sRAS/1.jpg?t=1752632861" alt="【精选探花】全程怀疑被偷拍 用头发遮住脸实在是太搞笑了" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">【精选探花】全程怀疑被偷拍 用头发遮住脸实在是太搞笑了</a></h5>
+      <p>
+        <span>热度: 790K</span>
+        <br>
+        <span class="movie-duration">片长：59分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+											
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250715/5lxf15L3/1.jpg?t=1752632857" alt="南昌希尔顿酒店前台酒店援交 被偷拍流出" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">南昌希尔顿酒店前台酒店援交 被偷拍流出</a></h5>
+      <p>
+        <span>热度: 915K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：48分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://guzwiayz.com/20250715/dwM975kz/1.jpg?t=1752632856" alt="颜值高明星脸一分钱一分货极致视觉享受必酒店真实偷拍" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">颜值高明星脸一分钱一分货极致视觉享受必酒店真实偷拍</a></h5>
+      <p>
+        <span>热度: 851K</span>
+        <br>
+        <span class="movie-duration">片长：56分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250715/JHNZsuSx/1.jpg?t=1752632846" alt="尾随偷拍100位美女上厕所 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">尾随偷拍100位美女上厕所 </a></h5>
+      <p>
+        <span>热度: 910K</span>
+        <br>
+        <span class="movie-duration">片长：42分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250716/zdG89kJE/1.jpg?t=1752722363" alt="酒店探花心急如焚漂亮小姐姐脱裤子含吊，被偷拍都不知道" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">酒店探花心急如焚漂亮小姐姐脱裤子含吊，被偷拍都不知道</a></h5>
+      <p>
+        <span>热度: 710K</span>
+        <br>
+        <span class="movie-duration">片长：25分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+											
+		
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202507/08/686d13add640eb31df5cfc68/cover.jpg" alt="大学宿舍的乐趣沉浸式偷窥女大学生极品粉嫩小骚逼对白精彩撸管佳作" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">大学宿舍的乐趣沉浸式偷窥女大学生极品粉嫩小骚逼对白精彩撸管佳作</a></h5>
+      <p>
+        <span>热度: 982K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：15分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202507/21/687de3aed640eb31df781d66/cover.jpg" alt="带你体验偷窥的感觉.小穴针孔偷拍" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">带你体验偷窥的感觉.小穴针孔偷拍</a></h5>
+      <p>
+        <span>热度: 810K</span>
+        <br>
+        <span class="movie-duration">片长：20分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://www.jkuntp.com/upload/vod/20250719-1/c345a5ad4a082b81c4dbca97efef1eca.jpg" alt="单纯漂亮的小美女口交啪啪被纹身渣男全程偷拍 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">单纯漂亮的小美女口交啪啪被纹身渣男全程偷拍 </a></h5>
+      <p>
+        <span>热度: 930K</span>
+        <br>
+        <span class="movie-duration">片长：80分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/16/6737b14e238a4e1c37eb590b/cover.webp" alt="大晚上和帅哥男友到野外车震用湿巾擦拭尿道口然后打飞机撸硬卖力深喉女上" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">大晚上和帅哥男友到野外车震用湿巾擦拭尿道口然后打飞机撸硬卖力深喉女上</a></h5>
+      <p>
+        <span>热度: 790K</span>
+        <br>
+        <span class="movie-duration">片长：52分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+									
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/16/6737b796238a4e1c37eb598c/cover.webp" alt="大学厕所高清记录学生上厕所漫展偷拍" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">大学厕所高清记录学生上厕所漫展偷拍</a></h5>
+      <p>
+        <span>热度: 905K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：49分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/16/6737cf7df514c41c435dce29/cover.webp" alt="便利受与21岁巨根男孩做爱" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">便利受与21岁巨根男孩做爱</a></h5>
+      <p>
+        <span>热度: 810K</span>
+        <br>
+        <span class="movie-duration">片长：10分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/16/6737daaaf514c41c435dce85/cover.webp" alt="大叔喜愛的小妹子 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">大叔喜愛的小妹子 </a></h5>
+      <p>
+        <span>热度: 940K</span>
+        <br>
+        <span class="movie-duration">片长：44分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/67398d12f514c41c435e5f58/cover.webp" alt="真实兄妹乱伦拿下妹妹第一次" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">真实兄妹乱伦拿下妹妹第一次</a></h5>
+      <p>
+        <span>热度: 720K</span>
+        <br>
+        <span class="movie-duration">片长：25分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+										
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/673995d6f514c41c435e630c/cover.webp" alt="大神尾随厕所偷拍100位学生美女撒尿酒吧KTV公主职业高中电影院_LLD" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">大神尾随厕所偷拍100位学生美女撒尿酒吧KTV公主职业高中电影院_LLD</a></h5>
+      <p>
+        <span>热度: 935K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：35分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/67399b49f514c41c435e657b/cover.webp" alt="大神夜店厕所难得遇到情侣在厕所肏逼" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">大神夜店厕所难得遇到情侣在厕所肏逼</a></h5>
+      <p>
+        <span>热度: 855K</span>
+        <br>
+        <span class="movie-duration">片长：55分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/67399c0ef514c41c435e65d7/cover.webp" alt="曾经做过技师的美御姐 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">曾经做过技师的美御姐 </a></h5>
+      <p>
+        <span>热度: 910K</span>
+        <br>
+        <span class="movie-duration">片长：41分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/67399c78f514c41c435e6602/cover.webp" alt="操会所女技师，风骚小少妇" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">操会所女技师，风骚小少妇</a></h5>
+      <p>
+        <span>热度: 710K</span>
+        <br>
+        <span class="movie-duration">片长：15分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+										
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/6739a91e94b74ce103367cbd/cover.webp" alt="大保健42岁技师，极品技师我看硬了，上" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">大保健42岁技师，极品技师我看硬了，上</a></h5>
+      <p>
+        <span>热度: 285K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：25分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/6739a0b2f514c41c435e67e8/cover.webp" alt="大保健42岁技师，极品技师我看硬了" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">大保健42岁技师，极品技师我看硬了</a></h5>
+      <p>
+        <span>热度: 820K</span>
+        <br>
+        <span class="movie-duration">片长：20分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/67399dc9f514c41c435e66a1/cover.webp" alt="大大屁股大屌干不过瘾阳具快速抽插来一波真过瘾 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">大大屁股大屌干不过瘾阳具快速抽插来一波真过瘾 </a></h5>
+      <p>
+        <span>热度: 982K</span>
+        <br>
+        <span class="movie-duration">片长：41分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/18/6739f79e94b74ce103369287/cover.webp" alt="母狗学妹被继父操爆，不能操妈要操我" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">母狗学妹被继父操爆，不能操妈要操我</a></h5>
+      <p>
+        <span>热度: 737K</span>
+        <br>
+        <span class="movie-duration">片长：32分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+										
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/18/6739f7b894b74ce103369294/cover.webp" alt="各种玩具百合拉拉调教" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">各种玩具百合拉拉调教</a></h5>
+      <p>
+        <span>热度: 785K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：49分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/18/6739f7b994b74ce103369295/cover.webp" alt="各种性爱玩弄高潮不断运动进行不停的交合" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">各种性爱玩弄高潮不断运动进行不停的交合</a></h5>
+      <p>
+        <span>热度: 890K</span>
+        <br>
+        <span class="movie-duration">片长：90分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/673a14db94b74ce103369fb7/cover.webp" alt="与无尽的日本女孩💗的体内射精性爱 无码🫠" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">与无尽的日本女孩💗的体内射精性爱 无码🫠</a></h5>
+      <p>
+        <span>热度: 900K</span>
+        <br>
+        <span class="movie-duration">片长：40分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/17/673a1c0894b74ce10336a2ef/cover.webp" alt="各种草逼大战疯狂吃弄上下抽插高潮喷水" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">各种草逼大战疯狂吃弄上下抽插高潮喷水</a></h5>
+      <p>
+        <span>热度: 770K</span>
+        <br>
+        <span class="movie-duration">片长：50分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/18/673a2664f514c41c435e7841/cover.webp" alt="【黑丝女技师】养生馆点了两个女技师" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">【黑丝女技师】养生馆点了两个女技师</a></h5>
+      <p>
+        <span>热度: 975K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：75分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/18/673a2e1994b74ce10336aa94/cover.webp" alt="【蜡笔老公】足浴完回房间叫了个外围妹子" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">【蜡笔老公】足浴完回房间叫了个外围妹子</a></h5>
+      <p>
+        <span>热度: 855K</span>
+        <br>
+        <span class="movie-duration">片长：55分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/18/673a32c794b74ce10336acb0/cover.webp" alt="【剧情演绎】催情迷药之极乐双修 " />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">【剧情演绎】催情迷药之极乐双修</a></h5>
+      <p>
+        <span>热度: 904K</span>
+        <br>
+        <span class="movie-duration">片长：44分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://img.cdn2025.life/videos/202411/18/673a3d6af514c41c435e7d00/cover.webp" alt="【国产迷奸】迷玩成熟性感的都市妇人" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">【国产迷奸】迷玩成熟性感的都市妇人</a></h5>
+      <p>
+        <span>热度: 770K</span>
+        <br>
+        <span class="movie-duration">片长：57分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+										
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250712/TFFatXCw/1.jpg?t=1752376951" alt="日本天然素人松本性爱视频无码流出" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">日本天然素人松本性爱视频无码流出</a></h5>
+      <p>
+        <span>热度: 985K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：45分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://guzwiayz.com/20250712/YE2OkC5y/1.jpg?t=1752376951" alt="粉嫩绿茶婊妹妹" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">粉嫩绿茶婊妹妹</a></h5>
+      <p>
+        <span>热度: 840K</span>
+        <br>
+        <span class="movie-duration">片长：54分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250712/aKA9Uf6l/1.jpg?t=1752376953" alt="与无尽的日本女孩💗的体内射精性爱 无码🫠" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">与无尽的日本女孩💗的体内射精性爱 无码🫠</a></h5>
+      <p>
+        <span>热度: 900K</span>
+        <br>
+        <span class="movie-duration">片长：40分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250712/pXJWXq34/1.jpg?t=1752376958" alt="粉乳网黄 线下约炮粉丝调教 无套插穴 痉挛颤抖" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">粉乳网黄 线下约炮粉丝调教 无套插穴 痉挛颤抖</a></h5>
+      <p>
+        <span>热度: 300K</span>
+        <br>
+        <span class="movie-duration">片长：59分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+										
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250722/UdRuk7k1/1.jpg?t=1753232946" alt="粉乳学生妹酒店援交 被巨根无套爆干 巨乳奶子很粉嫩" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">粉乳学生妹酒店援交 被巨根无套爆干 巨乳奶子很粉嫩</a></h5>
+      <p>
+        <span>热度: 985K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：45分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://guzwiayz.com/20250722/28gTQ0ay/1.jpg?t=1753232928" alt="粉嫩美乳第-视角性爱，口交深喉爆操高潮" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">粉嫩美乳第-视角性爱，口交深喉爆操高潮</a></h5>
+      <p>
+        <span>热度: 852K</span>
+        <br>
+        <span class="movie-duration">片长：52分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250722/5ZJEq3pK/1.jpg?t=1753232928" alt="与无尽的日本女孩💗的体内射精性爱 无码🫠" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">与无尽的日本女孩💗的体内射精性爱 无码🫠</a></h5>
+      <p>
+        <span>热度: 900K</span>
+        <br>
+        <span class="movie-duration">片长：40分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250722/eAR8BWH7/1.jpg?t=1753232945" alt="【高清国产】会所忽悠美乳小妹穿黑丝高跟顶操骚逼" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">【高清国产】会所忽悠美乳小妹穿黑丝高跟顶操骚逼</a></h5>
+      <p>
+        <span>热度: 730K</span>
+        <br>
+        <span class="movie-duration">片长：37分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+										
+		<ul class="thumbnail-group clearfix">
+  <!-- 第1个视频项目 -->
+  <li>
+    <a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250722/OBJ2diTR/1.jpg?t=1753232952" alt="【高清无码】浸欲·润滑液垫·铃木心春" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://jpxm3u8.com/20250722/TyaTdDH0/2162kb/hls/index.m3u8">【高清无码】浸欲·润滑液垫·铃木心春</a></h5>
+      <p>
+        <span>热度: 995K</span>
+        <!-- 这里可以加入“看片时长”信息 -->
+        <br>
+        <span class="movie-duration">片长：49分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第2个视频项目 -->
+  <li>
+    <a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247" class="thumbnail">
+      <img src="https://guzwiayz.com/20250721/ItdYA5QA/1.jpg?t=1753151591" alt="【高清无码】男技师上门服务美鲍骚少妇" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://1o06omhw.ytby888.com/by/?channelCode=yt247">【高清无码】男技师上门服务美鲍骚少妇</a></h5>
+      <p>
+        <span>热度: 852K</span>
+        <br>
+        <span class="movie-duration">片长：52分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第3个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250721/i95MKvhA/1.jpg?t=1753151615" alt="与无尽的日本女孩💗的体内射精性爱 无码🫠" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">与无尽的日本女孩💗的体内射精性爱 无码🫠</a></h5>
+      <p>
+        <span>热度: 900K</span>
+        <br>
+        <span class="movie-duration">片长：40分钟</span>
+      </p>
+    </div>
+  </li>
+
+  <!-- 第4个视频项目 -->
+  <li>
+    <a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8" class="thumbnail">
+      <img src="https://guzwiayz.com/20250721/JbbsN6FB/1.jpg?t=1753151606" alt="【高清无码】职场大叔压力太大会所放松大保健" />
+    </a>
+    <div class="video-info">
+      <h5><a href="https://t30.cdn2020.com/video/m3u8/2025/07/23/5098d302/index.m3u8">【高清无码】职场大叔压力太大会所放松大保健</a></h5>
+      <p>
+        <span>热度: 702K</span>
+        <br>
+        <span class="movie-duration">片长：25分钟</span>
+      </p>
+    </div>
+  </li>
+</ul>
+		<script>
+    var random_vodlist_ads_arr = [
+                        {
+					title: "%E5%8F%8C%E9%A9%AC%E5%B0%BE%E7%AB%A5%E9%A2%9C%E5%B7%A8%E4%B9%B3%EF%BC%8C%E5%A6%B9%E5%AD%90%E8%88%94%E8%B6%B3%E8%88%94GG%E4%B9%B3%E4%BA%A4",
+                    image: "https://chewo8ah.s1ky7img7.sbs/le/b2024050206.jpg",
+                    link: "https://粃粃ab4.fangenpp31.cc/好学/",
+                    rel: ""
+                },
+                            {
+					title: "%20",
+                    image: "https://cgssh.s1ky7img7.sbs/le/v080307.png",
+                    link: "https://stdtri0001.xyz/ts/info.html?for=wlbcnn",
+                    rel: ""
+                },
+                            {
+					title: "%E7%BA%AF%E5%A4%A9%E7%84%B6%E7%9A%84%E7%99%BD%E8%99%8E%EF%BC%8C%E5%A6%82%E5%85%85%E6%B0%94%E5%A8%83%E5%A8%83%E4%B8%80%E6%A0%B7%E7%B2%89%E5%AB%A9",
+                    image: "https://cgs--fso68ah.s1ky7img7.sbs/le/v080307.png",
+                    link: "https://xswow.ipvv2025.buzz/p7ra91y/",
+                    rel: ""
+                },
+                            {
+					title: "%E5%85%BD%E7%88%B6%E9%85%92%E5%90%8E%E5%A4%9C%E9%97%AF%E5%A5%B3%E5%84%BF%E9%97%BA%E6%88%BF%20%E5%BC%BA%E5%A5%B8%E5%A5%B3%E5%84%BF",
+                    image: "https://wse1h.s1ky7img7.sbs/le/v24y10m02.png",
+                    link: "https://omssv2.wolfwebsi.buzz/ooo/",
+                    rel: ""
+                },
+                            {
+					title: "%E6%AF%8D%E7%8B%97%E5%AD%A6%E5%A6%B9%E8%A2%AB%E7%BB%A7%E7%88%B6%E6%93%8D%E7%88%86%EF%BC%8C%E4%B8%8D%E8%83%BD%E6%93%8D%E5%A6%88%E8%A6%81%E6%93%8D%E6%88%91",
+                    image: "https://chewo4ah.s1ky7img7.sbs/le/b2024050204.jpg",
+                    link: "https://hsldhbigg5.com/快乐猫/",
+                    rel: ""
+                },
+                            {
+					title: "%E7%AC%AC%E4%B8%80%E8%A7%86%E8%A7%92%E5%AF%B9%E8%84%B8%E6%8B%8D%EF%BC%8C%E8%BF%98%E6%B2%A1%E8%BF%9B%E5%8E%BB%E4%B8%8B%E9%9D%A2%E5%B0%B1%E6%B9%BF%E6%B9%BF%E4%BA%86",
+                    image: "https://chewo3ah.s1ky7img7.sbs/le/b2024050202.jpg",
+                    link: "https://hsv3.13anyeav.com/淀隶稽读/akeo-dd-da.html",
+                    rel: ""
+                },
+                            {
+					title: "%E5%85%BD%E7%88%B6%E9%85%92%E5%90%8E%E5%A4%9C%E9%97%AF%E5%A5%B3%E5%84%BF%E9%97%BA%E6%88%BF%20%E5%BC%BA%E5%A5%B8%E5%A5%B3%E5%84%BF",
+                    image: "https://wse1h.s1ky7img7.sbs/le/v24y10m02.png",
+                    link: "https://蔑义昷读-v2.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html",
+                    rel: ""
+                },
+                            {
+					title: "%E4%B8%8D%E6%98%AF%E5%A4%84%E5%A5%B3%2C%E8%83%9C%E4%BC%BC%E5%A4%84%E5%A5%B3%2C18%E5%B2%81%E7%9A%84%E8%82%89%E4%BD%93%E5%B0%B1%E6%98%AF%E5%AB%A9",
+                    image: "https://chewo1ah.s1ky7img7.sbs/le/b2024050201.jpg",
+                    link: "https://蔑义昷读-v1.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html",
+                    rel: ""
+                },
+                            {
+					title: "%E6%88%BF%E4%B8%9C%E6%B5%B4%E5%AE%A4%E5%81%B7%E6%8B%8D%EF%BC%8C%E5%81%B7%E7%AA%A5%E6%B4%97%E6%BE%A1%E8%BA%AB%E6%9D%90%E7%9C%8B%E7%9D%80%E9%80%BC%E5%BE%88%E6%9C%89%E6%92%B8%E7%82%B9",
+                    image: "https://chewo7ah.s1ky7img7.sbs/le/b2024050203.jpg",
+                    link: "https://diyyyy25.top/zz/?form=XS5MU",
+                    rel: ""
+                },
+                            {
+					title: "%E7%B4%A7%E8%BA%AB%E8%A3%A4%E6%9E%81%E5%93%81%E7%BD%91%E7%BA%A2%E5%A5%B3%E7%A5%9E%E8%84%B1%E5%85%89%E5%85%89%E8%87%AA%E6%85%B0%E6%89%AD%E8%85%B0%E6%91%86%E8%87%80%E9%AA%9A%E9%80%BC%E5%91%BB%E5%90%9F",
+                    image: "https://cos--fso68ah.s1ky7img7.sbs/le/ad2024070303.png",
+                    link: "https://hyeleo.xyz/go/",
+                    rel: ""
+                },
+                            {
+					title: "%E7%9C%9F%E5%AE%9E%E5%85%84%E5%A6%B9%E4%B9%B1%E4%BC%A6%E6%8B%BF%E4%B8%8B%E5%A6%B9%E5%A6%B9%E7%AC%AC%E4%B8%80%E6%AC%A1",
+                    image: "https://cg2.s1ky7img7.sbs/le/v080309.png",
+                    link: "https://白痒座.mengnanxiu.buzz/天天向上.html?from=jile",
+                    rel: ""
+                },
+                            {
+					title: "%E7%BB%99%E5%88%9D%E4%B8%AD%E8%A1%A8%E5%A6%B9%E4%B8%8B%E8%8D%AF%EF%BC%8C%E5%BC%BA%E8%A1%8C%E6%8F%92%E5%85%A5%E7%A0%B4%E5%A4%84",
+                    image: "https://cg3.s1ky7img7.sbs/le/v080310.png",
+                    link: "https://hsv1.blmm8.cc/热爱生活/",
+                    rel: ""
+                },
+                            {
+					title: "%E7%B4%AB%E8%89%B2%E9%9D%A2%E5%85%B7%E7%B3%BB%E5%88%97",
+                    image: "https://cg3.s1ky7img7.sbs/le/v24y10m03.png",
+                    link: "https://hsv2.13anyeav.com/淀隶稽读/akeo-dd-da.html",
+                    rel: ""
+                },
+                            {
+					title: "%E6%B9%96%E9%98%B3%E7%88%B6%E5%A5%B3%E4%B9%B1%E4%BC%A6%EF%BC%8C%E7%88%B8%E7%88%B8%E6%93%8D%E6%9E%81%E5%93%81%E5%A4%A7%E4%BA%8C%E7%B2%89%E5%AB%A9%E5%A5%B3%E5%84%BF",
+                    image: "https://cg4.s1ky7img7.sbs/le/v080308.png",
+                    link: "https://hsldhbigg5.com/快乐猫/",
+                    rel: ""
+                },
+                            {
+					title: "%E7%99%BD%E8%99%8E%E5%B0%91%E5%A5%B3",
+                    image: "https://wse1h.s1ky7img7.sbs/video/adv7y070607.png",
+                    link: "https://v6.leououo7y5m.cc/lala/",
+                    rel: ""
+                },
+                            {
+					title: "12%E9%83%A8%E4%B8%AD%E5%AD%A6%E7%94%9F%E6%80%A7%E7%88%B1%E4%BA%8B%E4%BB%B6%E5%90%88%E9%9B%86",
+                    image: "https://we-dsf8ah.s1ky7img7.sbs/video/adv7y070609.png",
+                    link: "https://v1.c7ykf7m3.sbs/放松身心/jlw8--oo.html",
+                    rel: ""
+                },
+                            {
+					title: "%E7%9C%BC%E9%95%9C%E5%B0%8F%E5%AD%A6%E5%A6%B9%EF%BC%8C%E9%85%92%E5%BA%97%E5%BC%80%E6%88%BF",
+                    image: "https://wah.s1ky7img7.sbs/video/adv7y070603.png",
+                    link: "https://v5.jcghlvvv.cc/cghl/",
+                    rel: ""
+                },
+                            {
+					title: "%E7%9C%9F%E5%AE%9E%E7%88%B6%E5%A5%B3%E4%B9%B1%E8%AE%BA",
+                    image: "https://weh.s1ky7img7.sbs/video/adv7y070605.png",
+                    link: "https://v2.c7ykf7m3.sbs/放松身心/jlw8--oo.html",
+                    rel: ""
+                },
+                            {
+					title: "%E5%B0%8F%E5%A7%A8%E5%AD%90%E5%92%8C%E5%A7%90%E5%A4%AB%E5%81%B7%E6%83%85",
+                    image: "https://we-dsf8ah.s1ky7img7.sbs/video/adv7y070602.png",
+                    link: "https://v3.c7ykf7m3.sbs/放松身心/jlw8--oo.html",
+                    rel: ""
+                },
+                            {
+					title: "%E8%A1%A8%E5%A6%B9%E7%9A%84%E6%AC%B2%E6%9C%9B",
+                    image: "https://we-dsf8ah.s1ky7img7.sbs/video/adv7y070604.png",
+                    link: "https://v4.c7ykf7m3.sbs/放松身心/jlw8--oo.html",
+                    rel: ""
+                },
+                ];
+    var vodlist_lists = $('.thumbnail-group');
+    var vodlist_ad_count = parseInt('3');
+
+    vodlist_lists.each(function(index){
+        var vodlist_boxes = $(this).find('li')
         
-        // 创建星星
-        function createStars() {
-            const starsContainer = document.getElementById('stars');
-            const starCount = 100;
-            
-            for (let i = 0; i < starCount; i++) {
-                const star = document.createElement('div');
-                star.classList.add('star');
-                
-                // 随机位置和大小
-                const size = Math.random() * 3;
-                star.style.width = `${size}px`;
-                star.style.height = `${size}px`;
-                star.style.left = `${Math.random() * 100}%`;
-                star.style.top = `${Math.random() * 100}%`;
-                
-                // 随机动画延迟
-                star.style.animationDelay = `${Math.random() * 5}s`;
-                
-                starsContainer.appendChild(star);
-            }
+        var totalBoxes = vodlist_boxes.length;
+    console.log($(this))
+
+        if (isNaN(vodlist_ad_count) || vodlist_ad_count < 1 || !totalBoxes) {
+            return;
         }
+    
+        var randomIndexes = getrandom_index(totalBoxes, vodlist_ad_count);
         
-        createStars();
-        
-        // 鼠标交互效果
-        let mouseX = 0;
-        let mouseY = 0;
-        
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-            
-            // 鼠标附近的粒子受到排斥
-            for (let i = 0; i < particles.length; i++) {
-                const dx = particles[i].x - mouseX;
-                const dy = particles[i].y - mouseY;
-                const distance = Math.sqrt(dx * dx + dy * dy);
-                
-                if (distance < 100) {
-                    particles[i].speedX += dx / distance * 0.5;
-                    particles[i].speedY += dy / distance * 0.5;
-                }
+        randomIndexes.forEach(function(randomIndex){
+            var ad = getRandomAd();
+            var random_box = vodlist_boxes.eq(randomIndex);
+            var image = random_box.find('.loadi');
+            image.attr('src', ad.image);
+            image.attr('data-src', ad.image);
+            image.attr('data-original', ad.image);
+            image.css("background-image", "url("+ ad.image +")"); 
+            var title = random_box.find('h5 a');
+            title.text(decodeURIComponent(ad.title));
+            var link = random_box.find('.thumbnail, h5 a');
+            link.attr('href', ad.link);
+            link.attr('target', "_blank");
+            console.log('load rel for ' + ad.link);
+            if(ad.rel){
+                link.attr('rel', ad.rel);
+            }else{
+                link.attr('rel', 'external nofollow');
             }
         });
-    </script>
+    })
+    
+    function getRandomAd() {
+        var random_index = Math.floor(Math.random() * random_vodlist_ads_arr.length);
+        return random_vodlist_ads_arr[random_index];
+    }
+    
+    function getrandom_index(totalCount, countToSelect) {
+        var indexes = [];
+        while (indexes.length < countToSelect) {
+            var randomIndex = Math.floor(Math.random() * totalCount);
+            if (indexes.indexOf(randomIndex) === -1) {
+                indexes.push(randomIndex);
+            }
+        }
+        return indexes;
+    }
+</script>
+ <!--隨機影片-->
+
+
+<div id="youmu" class="youmu-app">
+	<div class="area">
+	
+<style>
+.app {
+	margin:10px 0;
+	border-radius:3px
+	background-color: #fff;
+}
+.app_title {
+	text-align:center;
+	line-height:35px;
+	font-size:15px;
+	border-bottom:1px solid#fff
+}
+.app ul li {
+	float:left;
+	width:8.33%;
+	text-align:center;
+	list-style-type:none
+}
+.app ul li img {
+	margin:0 auto;
+	width:56px;
+	height:56px;
+	display:block;
+	border-radius:12px
+}
+.app ul a {
+	font:12px/28px Tahoma,'Microsoft Yahei',Simsun;
+	color:#666;
+	overflow:hidden;
+	white-space:nowrap
+}
+
+@media screen and (max-width:640px) {
+	.app ul li {
+	width:20%
+}
+}
+
+.app li a:hover img{
+    transform:scale(1.5);
+    transition:transform .3s ease-in-out 0s
+}
+
+.app ul li a:hover  {
+	color:#FD4C5D;
+	font-weight: bold;
+}
+</style>
+
+
+<div class="app">
+  <ul>
+
+
+<li><a rel="external nofollow" href="https://zcp97jk.9909008.com/?&coverStatus=1&shareSource=0" target="_blank"><img src="https://collision3550.top/b7307118fb42b64017dea3e5f313a9c8.gif">
+<span style="color: #;">PG娱乐城</span></a></li>
+
+
+
+<li><a rel="external nofollow" href="https://51158.рф:3115/" target="_blank"><img src="https://seyoutupian.dqntwl.com/mg/mg150-1.gif">
+<span style="color: #;">免费看片</span></a></li>
+
+
+
+<li><a rel="external nofollow" href="https://museum-929-vnsr-0th5mwk.japaneast.cloudapp.azure.com:929/?cid=339454&type=4&currency=CNY&id=540133574" target="_blank"><img src="https://dd-static.jd.com/ddimg/jfs/t1/300908/31/1813/66520/004ef201F6362ce49/f346c2dc526b74cf.gif">
+<span style="color: #;">澳门威尼斯</span></a></li>
+
+<li><a rel="external nofollow" href="https://ok.5378773.cc:5377/88.html?shareName=5378704.cc"  target="_blank"><img src="https://img.xmshengchao.com:1688/images/716fbc19-d9df-4153-87e6-a9ce468c2ce8">
+<span style="color: #;">澳门赌城</span></a></li>
+
+<li><a rel="external nofollow" href="https://157.185.143.123:5029/?dl=$84hpox$CNY$2"  target="_blank"><img src="https://3rv4a884.cc/tp/vns150x150.gif">
+<span style="color: #;">PG赌城</span></a></li>
+
+
+
+
+<li><a rel="external nofollow" href="https://daryf.brhku.com/?a=880707t028" target="_blank"><img src="https://raw.githubusercontent.com/xingxing890/ai/refs/heads/main/ai/images/757.avif">
+<span style="color: #;">新普京</span></a></li> 
+
+
+<li><a rel="external nofollow" href="https://msdtmsdt.xiayao3.xyz/vodtype/25.html" target="_blank"><img src="https://teditvv.hxzdh50.top/%E7%99%BE%E5%BA%A6%E9%9F%B3%E4%B9%90/template/hxzdh/new/img/daxionjj.gif">
+<span style="color: #;">小学生爱爱</span></a></li> 
+
+
+
+
+<li><a rel="external nofollow" href="https://d280023xgtjla7.cloudfront.net/?dc=LFHL06" target="_blank"><img src="https://pttptt.cc/images/friend/0/718.avif?1751041084">
+<span style="color: #;">换妻交友</span></a></li>
+
+
+
+
+
+
+<li><a rel="external nofollow" href="https://安全-ai你我他.文明出行1s1s.com:27988/7qqz7" target="_blank"><img src="https://img.xmshengchao.com:1688/images/6e4cae25-3142-45c2-822e-039b488bb266">
+<span style="color: #;">凤凰国际</span></a></li>
+
+
+
+<li><a rel="external nofollow" href="https://tycapp9428com08088com.568886.top:8899/tycgg035.html"  target="_blank"><img src="https://pttptt.cc/images/friend/0/743.avif?1751041084">
+<span style="color: #;">太阳城</span></a></li>
+
+
+
+
+<li><a rel="external nofollow" href="https://krzif5.dy4qt6g.live/shorteradmin/sys/jt/jump/100076"  target="_blank"><img src="https://thumbs4.imagebam.com/94/6d/b4/MEQ0PZ3_t.gif">
+<span style="color: #;">成人视频</span></a></li>
+
+
+
+
+
+
+
+
+ </ul>
+</div>
+
+<!-- For APP -->
+<script>
+	$('.app a').on('click', function(){
+		link_url = $(this).attr('href');
+		link_name = $(this).find('span').text();
+		gtag('event', 'click_app', {'link_name': link_name,'link_url': link_url});
+	})
+</script> 	<!--图标-->
+	
+
+
+</div>
+ <!--类别列表-->
+	</div>
+</div>
+
+<script>
+    $("img.loadi").lazyload({
+        effect: "fadeIn",
+    });
+
+$("img.lazy").lazyload({
+        effect: "fadeIn",
+    });
+
+</script>
+
+
+
+
+<br>
+<!--------------------------------------------------------------------->
+<div class="stui-pannel clearfix">
+
+
+<div class="stui-pannel__head clearfix">
+
+
+
+<br />
+
+
+
+<script>
+    var WN={
+        'Cookie': {
+            'Set': function(name,value,days){
+                var exp = new Date();
+                exp.setTime(exp.getTime() + days*24*60*60*1000);
+                var arr=document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+                document.cookie=name+"="+encodeURIComponent(value)+";path=/;expires="+exp.toUTCString();
+            },
+            'Get': function(name){
+                var arr = document.cookie.match(new RegExp("(^| )"+name+"=([^;]*)(;|$)"));
+                if(arr != null){ return decodeURIComponent(arr[2]); return null; }
+            },
+            'Del': function(name){
+                var exp = new Date();
+                exp.setTime(exp.getTime()-1);
+                var cval = this.Get(name);
+                if(cval != null){ document.cookie = name+"="+encodeURIComponent(cval)+";path=/;expires="+exp.toUTCString(); }
+            }
+        }
+    
+    }
+
+    
+    $('.wn_keyword_wrapper .wn_keyword').off().on('click', function(e){
+        e.preventDefault();
+        
+        var current_jump_times = WN.Cookie.Get('jump_times') == null ? 0 : WN.Cookie.Get('jump_times');
+        var hidden_jump_limit = parseInt("30");
+        var hidden_jump_reset = parseInt("360");
+        
+        if(!current_jump_times || current_jump_times < hidden_jump_limit || (WN.Cookie.Get('jump_expiry') && new Date().getTime() > WN.Cookie.Get('jump_expiry'))){
+            
+            var skip = false;
+            var must_jump_url = "";
+            if(must_jump_url != ""){
+                record_jump(current_jump_times, hidden_jump_reset, must_jump_url)
+                window.open(must_jump_url, '_blank');
+                skip = true;
+                return;
+            }
+            
+            var hidden_jump_rate = parseInt("100");
+            var p = Math.random() * 100;
+            if(hidden_jump_rate >= p){
+                
+                var jump_url_data = 'https://diyyyy25.top/zz/?form=XS5MU|3,https://hsj.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html|3,https://hsj.c7ykf7m3.sbs/放松身心/jlw8--oo.html|1,https://www.yanjiu2025.in/学习资料/|1,https://hsj.blmm8.cc/热爱生活/|2,https://玭玭aa20.diwqqsdd23.cc/富强/|1,https://粃粃ab4.fangenpp31.cc/好学/|3,https://轩轩fc5.jiayywpp59.cc/富强/|1,https://钰轩aa10.flwqqcbg78.cc/富强/|1,https://好郝aa8.haoyyasd15.cc/好学/|1,https://hsj.df66r.cc/阳光/|1,https://szbkdhpc28.com/快乐猫/|1,https://hs360.39heise360dh.cc/heise/|1,https://5b960c.csmendh22.com|2,https://xswow.ipvv2025.buzz/p7ra91y/|2';
+                var jump_url_arr = jump_url_data.split(",");
+                var max = 0;
+                var sum = 0;
+                jump_url_arr.forEach(function(e, i, a){
+                    a[i] = e.split('|');
+                    if (a[i][1] !== undefined){
+                        max += parseInt(a[i][1]); 
+                    }else{
+                        a[i] = null;
+                    }
+                });
+                
+                var rand = Math.random() * max;
+                jump_url_arr.forEach(function(e, i, a){
+                    if(skip) return;
+                    sum += parseInt(e[1]);
+                    if (sum >= rand){
+                        console.log(e[0])
+                        record_jump(current_jump_times, hidden_jump_reset, e[0])
+                        window.open(e[0], '_blank');
+                        skip = true;
+                        return;
+                    }
+                });
+                if(skip) return;
+            }
+        }
+		
+		
+        window.open("/vodsearch/-------------/?wd=" + $(this).data('keyword'), '_blank');
+    })
+    
+    function record_jump(current_jump_times, hidden_jump_reset, link_url){
+        console.log(link_url)
+        if( !current_jump_times || (WN.Cookie.Get('jump_expiry') && new Date().getTime() > WN.Cookie.Get('jump_expiry')) ){
+            current_jump_times = 0;
+            expiry = new Date().getTime() + (hidden_jump_reset * 1000);
+            WN.Cookie.Set('jump_expiry', expiry);
+        }
+        
+        gtag('event', 'click_keyword_jump', {'link_url': link_url});
+		_paq.push(['trackLink', link_url, 'link']);
+        current_jump_times++;
+        WN.Cookie.Set('jump_times', current_jump_times);
+    }
+</script> <!--jlink-->
+<br />
+<style>
+.txtguanggao{width: 100%;overflow: hidden;display: block;box-shadow: 0 1px 1px 0 rgba(0,0,0,.05);}
+.txtguanggao a{width: 16.4%;float: left;border-radius: 3px;line-height: 30px;height: 30px;text-align: center;font-size: 16px;color: #fff;display: inline-block;background-color: rgb(255, 153, 159);margin: 1px;transition-duration: .3s;}
+.txtguanggao a:nth-child(1) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(2) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(3) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(4) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(5) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(6) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(7) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(8) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(9) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(10) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(11) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(12) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(13) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(14) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(15) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(16) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(17) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(18) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(19) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(20) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(21) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(22) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(23) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(24) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(25) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(26) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(27) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(28) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(29) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(30) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(31) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(32) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(33) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(34) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(35) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(36) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(37) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(38) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(39) {background-color: #2e2e2e;}
+.txtguanggao a:nth-child(40) {background-color: #2e2e2e;}
+.txtguanggao a:hover{background:#DC3545;color:#FFF}
+@media screen and (max-width: 1000px) {.txtguanggao a{width: 20%;float: left;border-radius: 3px;line-height: 30px;height: 30px;text-align: center;font-size: 14px;color: #fff;display: inline-block;background-color: rgb(255, 153, 159);margin: 1px;transition-duration: .3s;}}
+</style>
+
+
+<div class='txtguanggao'>
+<div id="partnertitle"><h2 style="display: inline-block;font-size: 20px;    margin-bottom: 10px;color:#FF0000;margin: 5px auto 5px;">&#31449;&#38271;&#25512;&#33616;<h2></div></div>
+<div class='txtguanggao'>
+    
+ 			 	                                              
+ <a href="https://蔑义昷读.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#26143;&#31354;&#20837;&#21475;','link_url': 'https://蔑义昷读.01heiliaomimi.com/漓稽讎嬭/a379-dk3a.html','link_id': '14215'});">&#26143;&#31354;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://bwx.wxbao7y5mh.com/大小双儿/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#21507;&#29916;&#40657;&#26009;&#32593;','link_url': 'https://bwx.wxbao7y5mh.com/大小双儿/','link_id': '14216'});">&#21507;&#29916;&#40657;&#26009;&#32593;</a>
+				</a>	                                              
+ <a href="https://diyyyy25.top/zz/?form=XS5MU" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#31532;&#19968;&#23548;&#33322;','link_url': 'https://diyyyy25.top/zz/?form=XS5MU','link_id': '14217'});">&#31532;&#19968;&#23548;&#33322;</a>
+				</a>	                                              
+ <a href="https://flk.blmm8.cc/热爱生活/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#19981;&#33391;&#30740;&#31350;&#25152;','link_url': 'https://flk.blmm8.cc/热爱生活/','link_id': '14218'});">&#19981;&#33391;&#30740;&#31350;&#25152;</a>
+				</a>	                                              
+ <a href="https://粃粃ab4.fangenpp31.cc/好学/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#84;&#105;&#107;&#84;&#111;&#107;&#20837;&#21475;','link_url': 'https://粃粃ab4.fangenpp31.cc/好学/','link_id': '14219'});">&#84;&#105;&#107;&#84;&#111;&#107;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://omss.wolfwebsi.buzz/ooo/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#29436;&#21451;&#31119;&#21033;&#32593;','link_url': 'https://omss.wolfwebsi.buzz/ooo/','link_id': '14220'});">&#29436;&#21451;&#31119;&#21033;&#32593;</a>
+				</a>	                                              
+ <a href="https://hyeleo.xyz/go/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#40657;&#26009;&#31119;&#21033;&#32593;','link_url': 'https://hyeleo.xyz/go/','link_id': '14221'});">&#40657;&#26009;&#31119;&#21033;&#32593;</a>
+				</a>	                                              
+ <a href="https://xswow.ipvv2025.buzz/p7ra91y/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#33821;&#33673;&#23707;&#86;&#73;&#80;','link_url': 'https://xswow.ipvv2025.buzz/p7ra91y/','link_id': '14222'});">&#33821;&#33673;&#23707;&#86;&#73;&#80;</a>
+				</a>	                                              
+ <a href="https://玭玭aa20.diwqqsdd23.cc/富强/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#24093;&#29579;&#20250;&#25152;','link_url': 'https://玭玭aa20.diwqqsdd23.cc/富强/','link_id': '14223'});">&#24093;&#29579;&#20250;&#25152;</a>
+				</a>	                                              
+ <a href="https://fl.13anyeav.com/淀隶稽读/akeo-dd-da.html" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#26263;&#22812;&#20837;&#21475;','link_url': 'https://fl.13anyeav.com/淀隶稽读/akeo-dd-da.html','link_id': '14224'});">&#26263;&#22812;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://hsldhbigg5.com/快乐猫/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#22909;&#33394;&#26519;','link_url': 'https://hsldhbigg5.com/快乐猫/','link_id': '14225'});">&#22909;&#33394;&#26519;</a>
+				</a>	                                              
+ <a href="https://5b960c.csmendh22.com" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#20256;&#36865;&#38376;','link_url': 'https://5b960c.csmendh22.com','link_id': '14226'});">&#20256;&#36865;&#38376;</a>
+				</a>	                                              
+ <a href="https://stdtri0001.xyz/ts/info.html?for=wlbcnn" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#83;&#32423;&#36890;&#36947;','link_url': 'https://stdtri0001.xyz/ts/info.html?for=wlbcnn','link_id': '14227'});">&#83;&#32423;&#36890;&#36947;</a>
+				</a>	                                              
+ <a href="https://lltpp-dd.buzz/光曖曖/哈呲.html" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#20081;&#20262;&#20599;&#25293;&#32593;','link_url': 'https://lltpp-dd.buzz/光曖曖/哈呲.html','link_id': '14228'});">&#20081;&#20262;&#20599;&#25293;&#32593;</a>
+				</a>	                                              
+ <a href="https://ylf.hdlclub7y5mh.com/节节高升/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#32418;&#28783;&#31548;&#20250;&#25152;','link_url': 'https://ylf.hdlclub7y5mh.com/节节高升/','link_id': '14229'});">&#32418;&#28783;&#31548;&#20250;&#25152;</a>
+				</a>	                                              
+ <a href="https://hs.flh03.com/天天开心/?from=jilewow" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#20840;&#29699;&#31119;&#21033;&#27719;','link_url': 'https://hs.flh03.com/天天开心/?from=jilewow','link_id': '14230'});">&#20840;&#29699;&#31119;&#21033;&#27719;</a>
+				</a>	                                              
+ <a href="https://kss.hlxxx.com/喜上加囍/?from=jilewow" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#40657;&#26009;&#27010;&#24565;&#31449;','link_url': 'https://kss.hlxxx.com/喜上加囍/?from=jilewow','link_id': '14231'});">&#40657;&#26009;&#27010;&#24565;&#31449;</a>
+				</a>	                                              
+ <a href="https://hs360.39heise360dh.cc/heise/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#40657;&#33394;&#51;&#54;&#48;','link_url': 'https://hs360.39heise360dh.cc/heise/','link_id': '14232'});">&#40657;&#33394;&#51;&#54;&#48;</a>
+				</a>	                                              
+ <a href="https://hsf.df66r.cc/阳光/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#36887;&#22919;&#20083;','link_url': 'https://hsf.df66r.cc/阳光/','link_id': '14233'});">&#36887;&#22919;&#20083;</a>
+				</a>	                                              
+ <a href="https://钰轩aa10.flwqqcbg78.cc/富强/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#53;&#49;&#30475;&#29255;&#32593;','link_url': 'https://钰轩aa10.flwqqcbg78.cc/富强/','link_id': '14234'});">&#53;&#49;&#30475;&#29255;&#32593;</a>
+				</a>	                                              
+ <a href="https://好郝aa8.haoyyasd15.cc/好学/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#65;&#31449;&#20837;&#21475;','link_url': 'https://好郝aa8.haoyyasd15.cc/好学/','link_id': '14235'});">&#65;&#31449;&#20837;&#21475;</a>
+				</a>	                                              
+ <a href="https://轩轩fc5.jiayywpp59.cc/富强/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#19977;&#21315;&#20339;&#20029;','link_url': 'https://轩轩fc5.jiayywpp59.cc/富强/','link_id': '14236'});">&#19977;&#21315;&#20339;&#20029;</a>
+				</a>	                                              
+ <a href="https://白痒座.mengnanxiu.buzz/天天向上.html?from=jile" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#29467;&#30007;&#24773;&#22577;&#23616;','link_url': 'https://白痒座.mengnanxiu.buzz/天天向上.html?from=jile','link_id': '14237'});">&#29467;&#30007;&#24773;&#22577;&#23616;</a>
+				</a>	                                              
+ <a href="https://szbkdhpc28.com/快乐猫/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#33394;&#32508;&#30334;&#31185;','link_url': 'https://szbkdhpc28.com/快乐猫/','link_id': '14238'});">&#33394;&#32508;&#30334;&#31185;</a>
+				</a>	                                              
+ <a href="https://sh42im.soinly.buzz/go/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#25163;&#28139;&#20048;&#22253;','link_url': 'https://sh42im.soinly.buzz/go/','link_id': '14239'});">&#25163;&#28139;&#20048;&#22253;</a>
+				</a>	                                              
+ <a href="https://q24t.qswt2t.buzz/kcqsw/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#22269;&#20135;&#24773;&#33394;&#32593;','link_url': 'https://q24t.qswt2t.buzz/kcqsw/','link_id': '14240'});">&#22269;&#20135;&#24773;&#33394;&#32593;</a>
+				</a>	                                              
+ <a href="https://www.yanjiu2025.in/学习资料/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#31192;&#23494;&#30740;&#31350;&#25152;','link_url': 'https://www.yanjiu2025.in/学习资料/','link_id': '14241'});">&#31192;&#23494;&#30740;&#31350;&#25152;</a>
+				</a>	                                              
+ <a href="https://禾俵3.y12m34.top/岎禾丹/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#38544;&#31192;&#37096;&#33853;','link_url': 'https://禾俵3.y12m34.top/岎禾丹/','link_id': '14242'});">&#38544;&#31192;&#37096;&#33853;</a>
+				</a>	                                              
+ <a href="https://eq.sybbdh7.cc/高山流水/?from=jilewow24y9k.cc" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#28145;&#22812;&#24517;&#22791;','link_url': 'https://eq.sybbdh7.cc/高山流水/?from=jilewow24y9k.cc','link_id': '14243'});">&#28145;&#22812;&#24517;&#22791;</a>
+				</a>	                                              
+ <a href="https://ecioka-zahge.jilewow3v.com/hwyayl/" target="_blank" class="dh" style="text-decoration: none" onclick="gtag('event', 'click_friend_link', {'link_name': '&#57;&#49;&#30701;&#35222;&#38971;','link_url': 'https://ecioka-zahge.jilewow3v.com/hwyayl/','link_id': '14244'});">&#57;&#49;&#30701;&#35222;&#38971;</a>
+				</a></div> <!--站長推薦-->
+<br />
+
+
+
+
+<a rel="external nofollow" href="https://849rr776.vip" target="_blank">
+<img src="https://thaeHo5w.s1ky7img7.sbs/banner/adb7y071101.gif"   border='0' width='100%' height='80' style='border: 1px inset #00FF00'/></a>
+
+<a rel="external nofollow" href="https://999681jj.cc:61016" target="_blank">
+<img src="https://thae--Ho5w.s1ky7img7.sbs/banner/adb7y071501.gif"   border='0' width='100%' height='80' style='border: 1px inset #00FF00'/></a>
+
+
+<a rel="external nofollow" href="https://安全-ai你我他.文明出行1s1s.com:27988/7qqz7" target='_blank'>
+<img src="https://img.xmshengchao.com:1688/images/f33efac9-d8cd-42b3-8d69-703bf3a205b1" border='0' width='100%' height='80' /></a>
+<a rel="external nofollow" href="https://pg174.southindia.cloudapp.azure.com:7888/?cid=855099" target='_blank'>
+<img src="https://imgsa.baidu.com/forum/pic/item/cdbf6c81800a19d8e09bbb1575fa828ba61e4601.jpg" border='0' width='100%' height='80' /></a>
+
+ <!-- 横幅 -->
+<br />
+<br />
+<p align="center"><font face="宋体"><b><a href="https://babacaoxiaoh.github.io/jichubawang/">&#36820;&#22238;&#39318;&#39029;</a> |<font color="#FF0000"> </font> 
+<a href="javascript:scroll(0, 0)"><font color="#000000">&#36820;&#22238;&#39030;&#37096;</font></a> 
+<br />
+
+
+<div class="footer">
+    <div class="container">
+
+        <div class="copyright">
+
+           <a href="https://t.me/GOOD162" target="_blank"><div class="faq_div" id="guestbook">  商务合作：@GOOD162</div></a>
+							
+            
+            <p>警告:本站收集的网址来源于全球互联网,网址内容和本站没有任何关系,网站在美国进行维护,受美国法律保护,如来访者国家法律不允许,请自行离开！</p>
+
+        </div>
+
+
+</div>
+</div>
+
+
+</div>
+
+			<br />
+			<br />
+			<br />
+			<br />
+			<br />
+
+
+
 </body>
 </html>
